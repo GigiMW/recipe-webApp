@@ -1,0 +1,73 @@
+<div class="container-fluid mt-6" style="margin-top: 100px;">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+  
+            <!-- Recipe Details -->
+            <div *ngIf="recipe">
+              <img [src]="recipe.recipe_image" class="card-img-top" alt="Card Image" style="width:100%; height: auto;">
+              <h2 class="text-warning">{{ recipe.recipe_name }}</h2>
+  
+              <!-- Ingredients -->
+              <div>
+                <h4 class="text-warning">Ingredients:</h4>
+                <ul>
+                  <li *ngFor="let ingredient of recipe.recipe_ingredients">{{ ingredient }}</li>
+                </ul>
+              </div>
+  
+              <!-- Steps -->
+              <div>
+                <h4 class="text-warning">Steps:</h4>
+                <ul>
+                  <li *ngFor="let step of recipe.recipe_steps">{{ step }}</li>
+                </ul>
+              </div>
+  
+              <!-- Cooking Time -->
+              <div>
+                <h4 class="text-warning">Cooking Time:</h4>
+                <p>{{recipe.recipe_cookingTime}}</p>
+              </div>
+  
+              <!-- Cuisine -->
+              <div>
+                <h4 class="text-warning">Cuisine:</h4>
+                <p>{{recipe.recipe_cuisine}}</p>
+              </div>
+  
+              <!-- Average Rating -->
+              <div *ngIf="recipe.averageRating !== undefined">
+                <p>Average Rating: {{ recipe.averageRating }}</p>
+              </div>
+  
+              <!-- Reviews -->
+              <div *ngIf="recipe.reviews && recipe.reviews.length > 0">
+                <h3 class="text-warning">Reviews</h3>
+                <div *ngFor="let review of recipe.reviews" class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ review.username }}</h5>
+                    <p class="card-text">Rating: {{ review.rating }}</p>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Add Rating and Review Form -->
+              <div>
+                <h3 class="text-warning">Add Your Rating</h3>
+                <form (ngSubmit)="submitRatingAndReview()">
+                  <div class="form-group">
+                    <label for="rating">Rating:</label>
+                    <input type="number" min="1" max="5" class="form-control" [(ngModel)]="newRating" name="rating" required>
+                  </div>
+                  <button type="submit" class="btn btn-warning" style="margin-top: 5px;">Submit</button>
+                </form>
+              </div>
+            <!-- End Recipe Details -->
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

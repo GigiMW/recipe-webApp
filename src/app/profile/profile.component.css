@@ -1,0 +1,16 @@
+.coloring{
+  background-color: #DAF9AD;
+  padding: 6px 8px;
+   border-radius: 5px;
+   top: 15px;
+   right: -2px;
+   width:400px;
+   margin-left:360px;
+
+}
+.backg {
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  margin-left: 161px;
+}

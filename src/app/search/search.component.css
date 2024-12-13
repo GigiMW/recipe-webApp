@@ -1,0 +1,66 @@
+.d-flex {
+  justify-content: center;
+  margin-top: 200px; /* Adjust this value to position it below the header */
+  margin-bottom: 20px;
+}
+
+.form-control,
+.form-select {
+  max-width: 400px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.row {
+  margin-top: 20px;
+}
+
+.card {
+  transition: transform 0.3s ease;
+  width: 100%; /* Ensure the card takes up available space but is limited by column width */
+  max-width: 280px; /* Restrict the card's width to fit the sidebar layout */
+  height: auto; /* Maintain responsive height */
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust the container to account for the sidebar */
+.container-fluid {
+  padding-left: 20px; /* Add padding to prevent overlap with the sidebar */
+  padding-right: 20px;
+  margin-left: 300px; /* Offset for the sidebar width */
+}
+
+/* Sidebar Styling (if applicable) */
+.sidebar {
+  width: 300px; /* Ensure a fixed width for the sidebar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #f8f9fa;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .container-fluid {
+    margin-left: 0; /* Remove offset for smaller screens */
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .card {
+    max-width: 100%; /* Allow cards to take full width on smaller screens */
+  }
+}

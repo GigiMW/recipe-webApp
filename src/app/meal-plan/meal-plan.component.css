@@ -1,0 +1,62 @@
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: rgb(255, 136, 0,0.7); /* Light blue background */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+.plan {
+  width: 70%; /* Adjust the width as needed */
+  height: 100px;  /* Adjust the height as needed */
+  font-size: 28px; /* Adjust the font size for better readability */
+  border-radius: 10px; /* Optional: make the corners more rounded */
+  text-align: center; /* Center text within the button */
+  background-color: #e64a19; /* Darker orange on hover */
+}
+.modal-header {
+  background-color: #e64a19; /* Darker orange on hover */
+  color: white; /* White text for contrast */
+  border-bottom: 2px solid #d98c00; /* Slightly darker border */
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 24px; /* Larger title text */
+  font-weight: bold; /* Bold title */
+}
+
+.modal-footer {
+  border-top: none; /* Remove default border */
+}
+
+.btn-warning {
+  background-color: #e64a19; /* Darker orange on hover */
+  border: none;
+  color: white; /* White text for better contrast */
+  font-size: 34px; /* Larger text for readability */
+  padding: 10px 20px; /* Larger padding for better feel */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.btn-warning:hover {
+  background-color: #e64a19; /* Darker orange on hover */
+  color: #fff; /* Retain white text */
+}
+
+.btn-secondary {
+  background-color: #444; /* Dark gray for secondary button */
+  color: white;
+  border: none;
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+.btn-secondary:hover {
+  background-color: #333; /* Slightly darker on hover */
+  color: white;
+}

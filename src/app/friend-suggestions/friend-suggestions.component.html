@@ -1,0 +1,25 @@
+<div class="container-fluid mt-6" style="margin-top:100px;">
+  <div class="row justify-content-center">
+      <div class="col-lg-8">
+          <ng-container *ngIf="suggestedFriends$ | async as suggestedFriends">
+              <div class="card">
+                  <div class="card-header">
+                      <h2 class="mb-0">Friends Suggestions</h2>
+                  </div>
+                  <div class="card-body">
+                      <div class="list-group">
+                          <div class="list-group-item" *ngFor="let Friend of suggestedFriends">
+                              <div class="d-flex align-items-center">
+                                  <img class="rounded-circle me-3" [src]="Friend.photoURL ?? '/assets/profile.png'" alt="Friend Image" width="80" height="80">
+                                  <h3 class="mb-0">{{ Friend.displayName }}</h3>
+                              </div>
+                              <button class="btn btn-warning"  style="margin-right: 5px;" (click)="viewProfile(Friend.uid)">View Profile</button>
+                              <button class="btn btn-warning" (click)= "followuser(Friend)">Follow</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </ng-container>
+      </div>
+  </div>
+</div>

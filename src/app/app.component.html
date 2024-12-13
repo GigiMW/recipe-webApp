@@ -1,0 +1,6 @@
+<ng-container *ngIf="(authService.currentUser$ | async) as user">
+
+   <app-header *ngIf="user"></app-header>
+  <app-sidebar *ngIf="user"></app-sidebar>
+</ng-container>
+<router-outlet></router-outlet>

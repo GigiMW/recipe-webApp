@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="col-10 ml-4 content-container">
+    <div class="ps-0 meal-plan-section">
+      <div class="button-container">
+        <button type="button" class="btn btn-warning plan" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Create a Meal Plan
+        </button>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Create a Meal Plan</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Meal Plan Form -->
+              <form (ngSubmit)="addMealPlan()" #mealPlanForm="ngForm">
+                <div class="mb-3">
+                  <label for="recipeSelect" class="form-label">Select Recipe:</label>
+                  <select id="recipeSelect" class="form-select" [(ngModel)]="selectedRecipeId" name="recipeId" required>
+                    <option value="" disabled selected>Select a recipe</option>
+                    <option *ngFor="let recipe of recipes" [value]="recipe?.recipe_id">{{ recipe?.recipe_name }}</option>
+                  </select>
+                </div>
+                <!-- Day -->
+                <div class="mb-3">
+                  <label class="form-label">Day:</label>
+                  <select class="form-select" [(ngModel)]="selectedDay" name="day" required>
+                    <option value="" disabled selected>Select a day</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                  </select>
+                </div>
+                <!-- Type -->
+                <div class="mb-3">
+                  <label class="form-label">Type:</label>
+                  <select class="form-select" [(ngModel)]="selectedType" name="type" required>
+                    <option value="" disabled selected>Select a type</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Snack">Snack</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-warning">Add</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let mealPlan of meals">
+          <div class="card" *ngIf="mealPlan.uid === userId">
+            <div class="card-body">
+              <h3 class="card-title text-warning">{{ mealPlan.name }}</h3>
+              <img [src]="getRecipeImage(mealPlan.recipe_id)" class="card-img-top" alt="Recipe Image">
+              <p class="card-text">Day: {{ mealPlan.day }}</p>
+              <p class="card-text">Type: {{ mealPlan.type }}</p>
+              <button (click)="showRecipeDetails(mealPlan.recipe_id)" type="button" class="btn btn-warning show-more-button"><a>Show More</a></button>
+              <button class="btn btn-warning" (click)="deleteMealPlan(mealPlan.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

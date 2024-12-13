@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg custom-navbar shadow fixed-top">
+    <div class="container">
+      <a class="navbar-brand logo" href="#">
+        <img src="assets/recipe.png" alt="logo" style="width: 50px; height: auto;">
+      </a>
+      <div class="d-flex align-items-center justify-content-between w-100">
+        <h2 class="text-light m-0">Recipe Plans</h2>
+        <div>
+          <button class="btn btn-outline-light me-2" type="submit" (click)="logout()">sign out</button>
+    <!-- This is a comment   <p *ngIf="user$ | async as user" class="m-0 text-light">{{ user.email }}</p> -->
+    <!-- <button class="btn btn-warning" (click)="navigateToProfile()">Profile</button> -->
+        </div>
+
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,57 @@
+.custom-navbar {
+  background: linear-gradient(135deg, #ff5722, #930505); /* Gradient background */
+  padding: 10px 20px; /* Increased padding */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays on top */
+}
+.logo{
+border-radius: 10px;
+ display: flex;
+
+}
+.d-flex .btn{
+  display: flex;
+  justify-content:right;
+  background-color: rgb(142, 39, 8,0.8);
+  border-radius: 100;
+}
+
+.custom-navbar .navbar-brand img {
+  transition: transform 0.3s; /* Smooth scaling on hover */
+}
+
+.custom-navbar .navbar-brand img:hover {
+  transform: scale(1.1); /* Slightly enlarge logo on hover */
+}
+
+.custom-navbar h2 {
+  font-family: 'Arial', sans-serif; /* Clean font */
+  color: #fff; /* White text color */
+  font-weight: 700; /* Bold text */
+}
+
+.custom-navbar .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.7); /* Light border */
+  color: #fff; /* White text */
+  margin-left: 10px; /* Slight left margin */
+
+}
+.d-flex .btn{
+  margin-right: 10px; /* Slight right margin */
+  margin-left: 10px; /* Slight left margin */
+  padding: 10px 20px; /* Increased padding */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.custom-navbar .btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+
+.custom-navbar p {
+  color: #fff; /* White text for user email */
+  margin-left: 10px; /* Slight left margin */
+}

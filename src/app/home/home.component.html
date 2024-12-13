@@ -1,0 +1,112 @@
+<!-- Updated Layout with Smaller Cards (4 per row) -->
+<div class="container-fluid ps-0" style="padding-right: 50px; margin-top:50px;">
+  <!-- Recipe Cards Section (4 cards per row) -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+    <div class="col" *ngFor="let recipe of recipes">
+      <div class="card recipe-card">
+        <div class="d-flex align-items-center justify-content-between card-header">
+          <h6 class="text-warning">Posted by: {{ recipe.postedBy }}</h6>
+          <button class="btn btn-light" (click)="saveRecipe(recipe)">
+            <i class="far fa-bookmark text-warning"></i>
+          </button>
+        </div>
+        <img [src]="recipe.recipe_image" class="card-img-top" alt="Card Image">
+        <div class="card-body">
+          <h6 class="card-title text-warning">{{ recipe.recipe_name }}</h6>
+          <div class="text-muted">
+            <p><strong>Cooking Time:</strong> {{recipe.recipe_cookingTime}}</p>
+            <p><strong>Cuisine:</strong> {{recipe.recipe_cuisine}}</p>
+          </div>
+          <!-- Like Section -->
+          <button (click)="currentUser && currentUser.uid ? likeRecipe(recipe, currentUser.uid) : null" class="btn-light border border-light like-btn">
+            <i class="far fa-thumbs-up text-warning"></i>
+            <span>{{ recipe.likes }}</span>
+          </button>
+          <!-- Show Comment Modal -->
+          <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#commentModal" (click)="prepareComment(recipe.recipe_id)">Add Comment</button>
+          <div class="comments-container">
+            <div *ngFor="let comment of recipe.comments" class="media comment">
+              <div class="media-body">
+                <span class="mt-0 text-warning">{{ comment.username }}:</span>
+                <span>{{ comment.text }}</span>
+              </div>
+            </div>
+            <!-- Show Recipe Details Button -->
+            <div class="d-flex justify-content-end mt-2">
+              <button (click)="showRecipeDetails(recipe.recipe_id)" type="button" class="btn btn-warning btn-sm">Show More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Recipe Button positioned to the right -->
+  <div class="add-recipe-button">
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Recipe</button>
+  </div>
+
+  <!-- Add Recipe Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Recipe</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" id="recipeImage" (change)="onFileSelected($event)">
+            <label class="input-group-text" for="recipeImage">Upload Recipe Image</label>
+          </div>
+          <div class="mb-3">
+            <label for="recipeName" class="form-label">Recipe Name</label>
+            <input type="text" class="form-control" [(ngModel)]="recipe_name" id="recipeName">
+          </div>
+          <div class="mb-3">
+            <label for="recipeIngredients" class="form-label">Ingredients (Separate with commas)</label>
+            <textarea class="form-control" [(ngModel)]="recipe_ingredients" id="recipeIngredients" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="recipeSteps" class="form-label">Steps (Each step in a new line)</label>
+            <textarea class="form-control" [(ngModel)]="recipe_steps" id="recipeSteps" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="recipeCuisine" class="form-label">Cuisine</label>
+            <input type="text" class="form-control" [(ngModel)]="recipe_cuisine" id="recipeCuisine">
+          </div>
+          <div class="mb-3">
+            <label for="recipeCookingTime" class="form-label">Cooking Time</label>
+            <input type="text" class="form-control" [(ngModel)]="recipe_cookingTime" id="recipeCookingTime">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" (click)="addRecipe()" class="btn btn-warning">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment Modal -->
+  <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="commentModalLabel">Add Comment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="commentText" class="form-label">Write your comment:</label>
+            <textarea class="form-control" id="commentText" rows="3" [(ngModel)]="newCommentText"></textarea>
+          </div>
+          <button type="button" class="btn btn-warning" (click)="addComment()">Submit Comment</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

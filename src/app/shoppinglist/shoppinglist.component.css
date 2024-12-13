@@ -1,0 +1,36 @@
+.container-fluid {
+  margin-top: 100px; /* Maintain space from the top */
+  height: 100vh;
+  background-color: rgb(255, 136, 0,0.7); /* Light blue background */
+}
+
+.card {
+  background-color: #e64a19; /* Darker orange on hover */
+  border-radius: 15px; /* Rounded corners */
+}
+
+.card-title {
+  font-size: 1.5rem; /* Increase title font size */
+  font-weight: bold; /* Bold title */
+}
+
+.list-group-item {
+  border: none; /* Remove border for list items */
+  padding: 15px; /* Increase padding for list items */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.list-group-item:hover {
+  background-color: rgba(255, 193, 7, 0.1); /* Light yellow on hover */
+}
+
+.btn-warning {
+  background-color: #742e00; /* Bootstrap warning color */
+  border: none; /* Remove border */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.btn-warning:hover {
+  background-color: #e01600; /* Darker yellow on hover */
+}
+

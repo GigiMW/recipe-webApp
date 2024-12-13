@@ -1,0 +1,28 @@
+<div class="d-flex align-items-start shadow vh-100 mt-5 justify-content-center position-fixed right-0 top-0 sidebar">
+  <ul class="nav flex-column">
+    <!-- <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-link link-warning" routerLink="/home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-warning" routerLink="/mealplan">Meal Plan</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-warning" [routerLink]="['/profile', userId$ | async]">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-warning" routerLink="/suggest">Friend Suggestions</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-warning" routerLink="/shopping-list">Shopping List</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-warning" routerLink="/save">Saved Recipes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-warning" routerLink="/search">search</a>
+    </li>
+  </ul>
+</div>

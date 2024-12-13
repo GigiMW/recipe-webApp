@@ -1,0 +1,65 @@
+
+
+.container-fluid {
+  background-color: rgb(255, 136, 0,0.7);
+  padding: 20px;
+  border-radius: 10px;
+  height:100vh;
+  /* margin-top: 0; */
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #e64a19; /* Darker orange on hover */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+  padding: 15px;
+}
+
+.card-header h2 {
+  color: #333; /* Dark text color */
+}
+
+.list-group-item {
+  background-color: #fff; /* White item background */
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: #e0f7fa; /* Light cyan on hover */
+  transform: scale(1.02);
+}
+
+.d-flex {
+  align-items: center;
+}
+
+.rounded-circle {
+  border: 3px solid #ffcc00; /* Yellow border for images */
+}
+
+.btn-warning {
+  background-color: #ff5722; /* Orange background */
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #e64a19; /* Darker orange on hover */
+}
+
+h3 {
+  color: #333; /* Dark text color for names */
+  margin: 0;
+  flex: 1; /* Ensure it takes available space */
+}

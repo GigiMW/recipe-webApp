@@ -1,0 +1,20 @@
+<div class="container-fluid mt-6" style="margin-top: 100px;">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body">
+          <h2 class="card-title text-warning text-center mb-4" >shopping List</h2>
+          <div *ngFor="let category of categories" class="mb-4">
+            <h3 class="text-warning">{{ category }}</h3>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let ingredient of ingredientsByCategory[category]">
+                <span>{{ ingredient.name }}</span>
+                <button class="btn btn-warning btn-sm" (click)="removeIngredient(category, ingredient.name)">Remove</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

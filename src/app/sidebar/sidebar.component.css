@@ -1,0 +1,38 @@
+.sidebar {
+  background: linear-gradient(135deg, #930505, #ff5722); /* Gradient background */
+  width: 250px; /* Set fixed width for sidebar */
+  padding: 20px; /* Add padding */
+  border-radius: 15px 0 0 15px; /* Round corners on the left */
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect on the left */
+  right: 0; /* Position it on the right */
+}
+
+.nav {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+
+}
+
+.nav-item {
+  margin-bottom: 15px; /* Space between items */
+  margin-top: 15px;
+}
+
+.nav-link {
+  color: #fff; /* White text color */
+  font-weight: 500; /* Medium font weight */
+  text-decoration: none; /* Remove underline */
+  padding: 10px 15px; /* Padding around links */
+  border-radius: 5px; /* Rounded corners for links */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+  color: #ffcc00; /* Change text color on hover */
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.3); /* Active link background */
+  color: #ffcc00; /* Active link text color */
+}

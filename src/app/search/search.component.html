@@ -1,0 +1,43 @@
+<div class="d-flex mb-3">
+  <!-- Search Input -->
+  <input
+    class="form-control me-2 rounded-pill"
+    type="search"
+    placeholder="Search recipes..."
+    [(ngModel)]="searchQuery"
+    (input)="onSearch()"
+    [ngModelOptions]="{ standalone: true }"
+  />
+
+  <!-- Criteria Dropdown -->
+  <select
+    class="form-select ms-2 rounded-pill"
+    [(ngModel)]="selectedCriteria"
+    (change)="onSearch()"
+  >
+    <option value="recipe_name">Recipe Name</option>
+    <option value="recipe_cuisine">Cuisine</option>
+    <option value="recipe_ingredients">Ingredients</option>
+    <option value="recipe_cookingTime">Cooking Time</option>
+  </select>
+</div>
+
+<!-- Recipe Display -->
+<div class="row g-4">
+  <div class="col-lg-4 col-md-6" *ngFor="let recipe of recipes">
+    <div class="card h-100 shadow-sm border-0 rounded">
+      <img
+        [src]="recipe.recipe_image"
+        class="card-img-top"
+        alt="Recipe Image"
+        style="height: 200px; object-fit: cover;"
+      />
+      <div class="card-body">
+        <h5 class="card-title text-warning">{{ recipe.recipe_name }}</h5>
+        <p class="small text-muted">By: {{ recipe.postedBy }}</p>
+        <p><strong>Cooking Time:</strong> {{ recipe.recipe_cookingTime }}</p>
+        <p><strong>Cuisine:</strong> {{ recipe.recipe_cuisine }}</p>
+      </div>
+    </div>
+  </div>
+</div>

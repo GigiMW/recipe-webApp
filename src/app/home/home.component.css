@@ -1,0 +1,127 @@
+/* General Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: red !important;  /* Set the background color of the homepage to red */
+  color: #212529;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+   background-color: red !important;  /* Set the background color of the homepage to red */
+  color: #212529;
+}
+
+.container-fluid {
+  background: url('../../assets/bg.jpg');
+  padding: 0 15px;
+  background-size: cover;  /* Make sure the image covers the entire page without repeating */
+  background-position: center;
+}
+
+/* Recipe Card */
+.recipe-card {
+  background-color: orange; /* Card background color */
+  border: none !important;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  margin-top: 30px;
+  max-width: calc(55.33% - 10px);
+
+}
+/* Sidebar Styling (if applicable) */
+.sidebar {
+  width: 300px; /* Ensure a fixed width for the sidebar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #f8f9fa;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.recipe-card .card-header {
+  padding: 10px;
+}
+
+.recipe-card .card-body {
+  padding: 15px;
+}
+
+/* Styling for PostedBy and Recipe Name Texts */
+.recipe-card h6.text-warning {
+  color: white !important; /* Change the 'Posted By' and Recipe Name text color to white */
+}
+
+.recipe-card .card-title {
+  color: white; /* Change the Recipe Name color to white */
+}
+
+/* Like Button Styling */
+.recipe-card button {
+  background-color: red; /* Button color */
+  color: white;
+  border: none ; /* Remove border around buttons */
+  transition: all 0.3s ease;
+  margin:10px;
+}
+
+.recipe-card button:hover {
+  background-color: darkred; /* Add hover effect */
+}
+
+/* Add Recipe Button */
+.add-recipe-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.add-recipe-button .btn {
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 18px;
+  color:rgb(255, 255, 255);
+background-color: rgb(255, 149, 0);
+}
+
+/* Comments Section */
+.comments-container {
+  font-size: 0.8rem;
+}
+
+.comments-container .comment {
+  margin-bottom: 10px;
+}
+
+/* Modal Styling */
+.modal-content {
+  border-radius: 15px;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .recipe-card .card-body {
+    padding: 10px;
+  }
+
+  .add-recipe-button .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}

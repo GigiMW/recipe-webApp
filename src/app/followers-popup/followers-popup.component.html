@@ -1,0 +1,11 @@
+<div class="popup-container"*ngIf="isPopupVisible">
+  <h2 class="popup-header">Followers</h2>
+  <button class="close-btn" (click)="closePopup()">×</button>
+  <ul class="popup-list">
+    <li class="popup-list-item" *ngFor="let follower of followers$ | async">
+      {{ follower }}
+    </li>
+
+  </ul>
+  
+</div>

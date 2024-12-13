@@ -1,0 +1,21 @@
+<div class="container-fluid ps-0" style="padding-left: 50px; margin-top:80px;">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="card mt-5" *ngFor="let recipe of savedRecipes">
+          <img [src]="recipe.recipe_image" class="card-img-top" alt="Card Image" style="width:100%; height: auto;">
+          <div class="card-body">
+            <h2 class="card-title">{{ recipe.recipe_name }}</h2>
+            <h5 class="text-warning">Cooking Time:</h5>
+            <p>{{recipe.recipe_cookingTime}}</p>
+
+            <h5 class="text-warning">Cusine</h5>
+            <p>{{recipe.recipe_cuisine}}</p>
+            <button (click)="showRecipeDetails(recipe.recipe_id)" type="button" class="btn btn-warning" style="margin-right:5px;"><a>Show More</a></button>
+          </div>
+        </div>
+        <ng-template #noRecipes>
+          <p>No recipes saved yet.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>

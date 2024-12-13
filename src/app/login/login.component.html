@@ -1,0 +1,34 @@
+<div [ngStyle]="{'background-image': 'url(/assets/bg.jpg)', 'background-size': 'cover','background-position': 'center', 'height': '100vh'}" class="backg">
+  <div class="container ">
+    <div class="row justify-content-center">
+
+
+      <h1 class="text-center mb-4">Login</h1>
+      <p class="text-center mb-4">welcome back</p>
+      <div class="colored-square">
+        <form [formGroup]="loginForm" (ngSubmit)="submit()">
+          <div class="form-group mb-3">
+            <input type="email" class="form-control" placeholder="Email" formControlName="email" required>
+            <div class="invalid-feedback" *ngIf="email?.errors?.['required']">
+              Email address is required
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+            <div class="invalid-feedback" *ngIf="password?.errors?.['required']">
+              Password is required
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <button type="submit" class="btn btn-warning btn-block" style="background-color: #DAF9AD;" >Login</button>
+          </div>
+        </form>
+      </div>
+
+        <div class="text-center">
+          <p>You haven't an account? <a [routerLink]="['/register']" class="link-warning">Register</a></p>
+        </div>
+
+    </div>
+  </div>
+  </div>
