@@ -70,11 +70,11 @@ export class FriendSuggestionsComponent implements OnInit {
     const userDoc = await userRef.get();
     const followed_user = await userRef.get();
     const following = userDoc.data()?.['following'] || [];
-    if (following.includes(Friend.displayName)) { 
-    
+    if (following.includes(Friend.displayName)) {
+
     } else {
       await userRef.update({
-        following: firebase.firestore.FieldValue.arrayUnion(Friend.displayName) 
+        following: firebase.firestore.FieldValue.arrayUnion(Friend.displayName)
       });
         if (this.currentUser) {
           await followed_userRef.update({

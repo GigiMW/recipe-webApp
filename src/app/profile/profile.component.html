@@ -1,17 +1,9 @@
-<div [ngStyle]="{'background-image': 'url(/assets/bg.jpg)', 'background-size': 'cover','background-position': 'center', 'height': '100vh'}" class="backg">
+<div [ngStyle]="{'background-image': 'url(/assets/bg.jpg)', 'background-size': 'cover','background-position': 'center', 'height': '100%'}" class="backg">
   <div class="container mt-6" style="padding-left: 50px; margin-top: 20px;">
     <ng-container *ngIf="user$ | async as user">
-      <div class="form-container mat-elevation-z5 text-center coloring" style="margin-top: 185px;">
+      <div class="form-container mat-elevation-z5 text-center coloring" style="margin-top: 185px; margin-bottom: 100px; width:50%; ">
         <h1>Your Profile</h1>
         <div class="profile-image position-relative mt-3">
-          <img
-            width="120"
-            height="120"
-            class=" border border-dark"
-            [src]="user.photoURL ?? '/assets/profile.png'"
-            alt="Profile Picture"
-          >
-
           <div>{{ user.displayName }}</div>
           <button class="btn btn-warning btn-sm followers-btn" style="margin-right: 5px; background-color: #f2c79b;" (click)="openFollowersPopup()">Show Followers</button>
           <button class="btn btn-warning btn-sm following-btn" style="margin-right: 5px; background-color: #f2c79b;" (click)="openFollowingPopup()">Show Following</button>

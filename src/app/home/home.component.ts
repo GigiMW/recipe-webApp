@@ -62,50 +62,42 @@ export class HomeComponent implements OnInit {
 
   async addRecipe() {
     try {
-        this.recipe_id = await this.generateRecipeId();
-        let ingredientsArray: string[] = [];
-        let stepsArray: string[] = [];
-
-        if (this.recipe_ingredients.includes(',')) {
-            ingredientsArray = this.recipe_ingredients.split(',').map((ingredient: string) => ingredient.trim());
-        } else {
-            ingredientsArray.push(this.recipe_ingredients.trim());
-        }
-        if (this.recipe_steps.includes('\n')) {
-            stepsArray = this.recipe_steps.split('\n').map((step: string) => step.trim());
-        } else {
-            stepsArray.push(this.recipe_steps.trim());
-        }
-
-        const imageRef = this.storage.ref(`recipe_images/${this.recipe_id}`);
-        const uploadTask = imageRef.put(this.recipe_image);
-
-        uploadTask.then(async (snapshot: firebase.storage.UploadTaskSnapshot) => {
-            const downloadURL = await imageRef.getDownloadURL();
-
-            const recipeData = {
-                recipe_id: this.recipe_id,
-                recipe_image: downloadURL,
-                recipe_name: this.recipe_name,
-                recipe_ingredients: ingredientsArray,
-                recipe_steps: stepsArray,
-                recipe_cuisine: this.recipe_cuisine,
-                recipe_cookingTime: this.recipe_cookingTime,
-                uid: this.currentUser?.uid,
-                likes: this.likes,
-                userLikes: this.userLikes,
-                comments: this.comments,
-            };
-
-            await this.recipeService.addRecipe(recipeData);
-            this.getRecipes();
-            this.clearFormFields();
-        });
+      this.recipe_id = await this.generateRecipeId();
+      let ingredientsArray: string[] = [];
+      let stepsArray: string[] = [];
+  
+      if (this.recipe_ingredients.includes(',')) {
+        ingredientsArray = this.recipe_ingredients.split(',').map((ingredient: string) => ingredient.trim());
+      } else {
+        ingredientsArray.push(this.recipe_ingredients.trim());
+      }
+      if (this.recipe_steps.includes('\n')) {
+        stepsArray = this.recipe_steps.split('\n').map((step: string) => step.trim());
+      } else {
+        stepsArray.push(this.recipe_steps.trim());
+      }
+  
+      const recipeData = {
+        recipe_id: this.recipe_id,
+        recipe_image: this.recipe_image, // Directly use the URL from the input field
+        recipe_name: this.recipe_name,
+        recipe_ingredients: ingredientsArray,
+        recipe_steps: stepsArray,
+        recipe_cuisine: this.recipe_cuisine,
+        recipe_cookingTime: this.recipe_cookingTime,
+        uid: this.currentUser?.uid,
+        likes: this.likes,
+        userLikes: this.userLikes,
+        comments: this.comments,
+      };
+  
+      await this.recipeService.addRecipe(recipeData);
+      this.getRecipes();
+      this.clearFormFields();
     } catch (error) {
-        console.error('Error adding recipe:', error);
+      console.error('Error adding recipe:', error);
     }
-}
-
+  }
 onFileSelected(event: any) {
   this.recipe_image = event.target.files[0];
 }

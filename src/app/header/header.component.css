@@ -55,3 +55,33 @@ border-radius: 10px;
   color: #fff; /* White text for user email */
   margin-left: 10px; /* Slight left margin */
 }
+
+.card-body .btn {
+  width: 100px; /* Set a fixed width to make them uniform */
+  height: 35px; /* Adjust height for better proportions */
+  font-size: 14px; /* Adjust font size for readability */
+  padding: 5px; /* Add padding for consistent spacing */
+}
+
+.card-body .btn-danger {
+  background-color: #ff4d4d; /* Custom red color */
+  border-color: #e60000; /* Slightly darker border for contrast */
+}
+
+.card-body .btn-danger:hover {
+  background-color: #e60000; /* Darken on hover */
+  border-color: #b30000; /* Adjust border on hover */
+}
+
+.card-body .btn + .btn {
+  margin-left: 8px; /* Add spacing between buttons */
+}
+.card-body .btn {
+  flex: 1; /* Ensures buttons occupy equal width */
+  margin: 0 4px; /* Adds spacing between buttons */
+  max-width: 120px; /* Prevents buttons from becoming too wide */
+}
+
+.card-body .d-flex {
+  gap: 8px; /* Adds space between buttons */
+}

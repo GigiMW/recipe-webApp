@@ -60,3 +60,40 @@
   background-color: #333; /* Slightly darker on hover */
   color: white;
 }
+
+
+.content-container {
+  margin-left: 15px; /* Adjust margin to avoid overlapping the sidebar */
+}
+
+.meal-plan-section {
+  margin-top: 20px; /* Add spacing above the meal plan section */
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  height: 150px;
+  object-fit: cover; /* Ensures the image fits within the card */
+}
+
+.row.g-4 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.button-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .card {
+    max-width: 320px;
+  }
+}
+

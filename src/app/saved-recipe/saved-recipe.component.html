@@ -1,8 +1,8 @@
 <div class="container-fluid ps-0" style="padding-left: 50px; margin-top:80px;">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <div class="card mt-5" *ngFor="let recipe of savedRecipes">
-          <img [src]="recipe.recipe_image" class="card-img-top" alt="Card Image" style="width:100%; height: auto;">
+        <div class="card mt-5" *ngFor="let recipe of savedRecipes" style="border:none;">
+          <img [src]="recipe.recipe_image" class="card-img-top" alt="Card Image" style="width:20vw; height: 30vh;">
           <div class="card-body">
             <h2 class="card-title">{{ recipe.recipe_name }}</h2>
             <h5 class="text-warning">Cooking Time:</h5>

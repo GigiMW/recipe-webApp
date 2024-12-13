@@ -10,7 +10,7 @@
                       <div class="list-group">
                           <div class="list-group-item" *ngFor="let Friend of suggestedFriends">
                               <div class="d-flex align-items-center">
-                                  <img class="rounded-circle me-3" [src]="Friend.photoURL ?? '/assets/profile.png'" alt="Friend Image" width="80" height="80">
+                                  
                                   <h3 class="mb-0">{{ Friend.displayName }}</h3>
                               </div>
                               <button class="btn btn-warning"  style="margin-right: 5px;" (click)="viewProfile(Friend.uid)">View Profile</button>

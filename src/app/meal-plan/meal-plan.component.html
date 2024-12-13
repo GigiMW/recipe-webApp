@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="col-10 ml-4 content-container">
     <div class="ps-0 meal-plan-section">
-      <div class="button-container">
+      <!-- Create a Meal Plan Button -->
+
+      <div class="button-container mb-4" style="padding-top:20px">
         <button type="button" class="btn btn-warning plan" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Create a Meal Plan
         </button>
@@ -25,7 +27,6 @@
                     <option *ngFor="let recipe of recipes" [value]="recipe?.recipe_id">{{ recipe?.recipe_name }}</option>
                   </select>
                 </div>
-                <!-- Day -->
                 <div class="mb-3">
                   <label class="form-label">Day:</label>
                   <select class="form-select" [(ngModel)]="selectedDay" name="day" required>
@@ -39,7 +40,6 @@
                     <option value="Sunday">Sunday</option>
                   </select>
                 </div>
-                <!-- Type -->
                 <div class="mb-3">
                   <label class="form-label">Type:</label>
                   <select class="form-select" [(ngModel)]="selectedType" name="type" required>
@@ -60,20 +60,30 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-4 mb-4" *ngFor="let mealPlan of meals">
-          <div class="card" *ngIf="mealPlan.uid === userId">
+      <!-- Meal Plan Cards -->
+      <div class="row g-4">
+        <div class="col-md-4" *ngFor="let mealPlan of meals">
+          <div class="card h-100" *ngIf="mealPlan.uid === userId">
             <div class="card-body">
-              <h3 class="card-title text-warning">{{ mealPlan.name }}</h3>
+              <h5 class="card-title text-warning">{{ mealPlan.name }}</h5>
               <img [src]="getRecipeImage(mealPlan.recipe_id)" class="card-img-top" alt="Recipe Image">
               <p class="card-text">Day: {{ mealPlan.day }}</p>
               <p class="card-text">Type: {{ mealPlan.type }}</p>
-              <button (click)="showRecipeDetails(mealPlan.recipe_id)" type="button" class="btn btn-warning show-more-button"><a>Show More</a></button>
-              <button class="btn btn-warning" (click)="deleteMealPlan(mealPlan.id)">Delete</button>
+              <!-- Button container -->
+              <div class="d-flex justify-content-between">
+                <button
+                  (click)="showRecipeDetails(mealPlan.recipe_id)"
+                  type="button"
+                  class="btn btn-danger btn-sm">
+                  Show More
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  (click)="deleteMealPlan(mealPlan.id)">
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>

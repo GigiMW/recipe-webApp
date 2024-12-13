@@ -4,7 +4,6 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { Observable, of } from 'rxjs';
 import { switchMap, catchError, tap } from 'rxjs/operators';
 import { ProfileUser } from '../user.interface';
-import { ImageUploadService } from '../image-uploaded.service';
 import { UsersService } from '../users.service';
 import { RecipeService } from '../recipe.service';
 import { AuthenticationService } from '../authentication.service';
@@ -26,7 +25,6 @@ export class ProfileComponent implements OnInit {
   currentUserUid: string | undefined;
 
   constructor(
-    private imageUploadService: ImageUploadService,
     private toast: HotToastService,
     private usersService: UsersService,
     private recipeService: RecipeService,
@@ -88,24 +86,6 @@ openFollowersPopup(): void {
     this.recipes$ = this.recipeService.getRecipesByUser(uid);
   }
 
-  uploadFile(event: any, { uid }: ProfileUser) {
-    this.imageUploadService
-      .uploadImage(event.target.files[0], `images/profile/${uid}`)
-      .pipe(
-        this.toast.observe({
-          loading: 'Uploading profile image...',
-          success: 'Image uploaded successfully',
-          error: 'There was an error in uploading the image',
-        }),
-        switchMap((photoURL) =>
-          this.usersService.updateUser({
-            uid,
-            photoURL,
-          })
-        )
-      )
-      .subscribe();
-  }
 showRecipeDetails(recipeId: string) {
     this.router.navigate(['/details', recipeId]);
   }
